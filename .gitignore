@@ -1,0 +1,16 @@
+# ── 안전장치: 사내 기밀 문서가 실수로 들어와도 커밋되지 않도록 차단 ──
+*.pdf
+*.pptx
+*.ppt
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.hwp
+*.hwpx
+*.zip
+*.csv
+*.md
+*.py
+.DS_Store
+Thumbs.db

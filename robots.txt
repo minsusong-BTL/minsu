@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /
+
+# 카카오톡/팀즈 링크 미리보기 봇은 허용
+User-agent: kakaotalk-scrap
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+User-agent: Twitterbot
+Allow: /

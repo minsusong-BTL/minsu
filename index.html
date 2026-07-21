@@ -3,1440 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>블루타일랩 | AI 비전검사 & 극초단파 레이저</title>
-<meta name="description" content="블루타일랩은 AI 기반 머신비전 검사 시스템과 극초단파(펨토초) 레이저 광원을 개발하는 딥테크 기업입니다. 반도체 후공정과 이차전지 산업의 품질 혁신을 선도합니다.">
+<title>BlueTileLab Daily Intelligence Brief · 아카이브</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BlueTileLab Daily Intelligence Brief">
+<meta property="og:title" content="BlueTileLab Daily Intelligence Brief">
+<meta property="og:description" content="블루타일랩 전략기획실 · AI비전검사 & 레이저 & IPO 뉴스레터">
+<meta property="og:image" content="https://minsusong-btl.github.io/minsu/og/2026-07-21.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://minsusong-btl.github.io/minsu/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="블루타일랩 전략기획실 · AI비전검사 & 레이저 & IPO 뉴스레터">
 <style>
-  /* ─── Reset & Base ─────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    color: #111827;
-    background: #fff;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { text-decoration: none; color: inherit; }
-  img { max-width: 100%; display: block; }
-
-  /* ─── Design Tokens ────────────────────────────── */
-  :root {
-    --blue: #1a56ff;
-    --blue-dark: #0c3adf;
-    --blue-light: #e8efff;
-    --navy: #080e1e;
-    --navy2: #0d1a36;
-    --gray-100: #f8f9fc;
-    --gray-200: #eef0f5;
-    --gray-400: #9ca3af;
-    --gray-600: #4b5563;
-    --gray-800: #1f2937;
-    --accent: #00d4ff;
-    --gradient: linear-gradient(135deg, var(--blue) 0%, var(--accent) 100%);
-    --radius: 12px;
-    --shadow: 0 4px 24px rgba(0,0,0,.08);
-    --shadow-lg: 0 12px 48px rgba(0,0,0,.14);
-    --max-w: 1180px;
-    --section-py: 100px;
-  }
-
-  /* ─── Utility ──────────────────────────────────── */
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
-  .section-label {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 800;
-    line-height: 1.25;
-    color: var(--gray-800);
-    margin-bottom: 20px;
-  }
-  .section-title .hl { color: var(--blue); }
-  .section-sub {
-    font-size: 17px;
-    color: var(--gray-600);
-    max-width: 640px;
-    line-height: 1.75;
-  }
-  .badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .badge-blue { background: var(--blue-light); color: var(--blue); }
-  .badge-navy { background: #1e2a4a; color: #7cb4ff; }
-  .badge-green { background: #d1fae5; color: #065f46; }
-  .badge-orange { background: #fff7ed; color: #c2410c; }
-
-  /* ─── NAV ──────────────────────────────────────── */
-  #nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(8, 14, 30, 0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    transition: background .3s;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  .nav-logo {
-    font-size: 20px;
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: -0.5px;
-  }
-  .nav-logo span { color: var(--accent); }
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-  }
-  .nav-menu a {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255,255,255,.75);
-    transition: color .2s;
-    white-space: nowrap;
-  }
-  .nav-menu a:hover { color: #fff; }
-  .nav-cta {
-    background: var(--blue);
-    color: #fff !important;
-    padding: 9px 22px;
-    border-radius: 8px;
-    font-weight: 700 !important;
-    font-size: 13px !important;
-    transition: background .2s !important;
-  }
-  .nav-cta:hover { background: var(--blue-dark) !important; }
-
-  /* ─── HERO ─────────────────────────────────────── */
-  #hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding-top: 68px;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26,86,255,.18) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(0,212,255,.10) 0%, transparent 60%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0; opacity: .04;
-    background-image: linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-content {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    width: 100%;
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 80px 32px;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(26,86,255,.2);
-    border: 1px solid rgba(26,86,255,.4);
-    border-radius: 100px;
-    padding: 6px 16px;
-    margin-bottom: 28px;
-  }
-  .hero-badge-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100%{opacity:1;transform:scale(1)}
-    50%{opacity:.5;transform:scale(1.3)}
-  }
-  .hero-badge span { font-size: 12px; font-weight: 600; color: var(--accent); }
-  .hero-h1 {
-    font-size: clamp(32px, 5vw, 58px);
-    font-weight: 900;
-    line-height: 1.15;
-    color: #fff;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
-  }
-  .hero-h1 .hl {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,.65);
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--blue); color: #fff;
-    padding: 14px 28px; border-radius: 10px;
-    font-size: 15px; font-weight: 700;
-    transition: background .2s, transform .2s;
-    border: none; cursor: pointer;
-  }
-  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,.1); color: rgba(255,255,255,.9);
-    padding: 14px 28px; border-radius: 10px;
-    font-size: 15px; font-weight: 700;
-    border: 1px solid rgba(255,255,255,.2);
-    transition: background .2s; cursor: pointer;
-  }
-  .btn-ghost:hover { background: rgba(255,255,255,.18); }
-  .hero-clients { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .hero-clients-label {
-    font-size: 11px; letter-spacing: 2px;
-    color: rgba(255,255,255,.4); text-transform: uppercase; font-weight: 600;
-  }
-  .hero-clients-list {
-    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-  }
-  .hero-client-tag {
-    font-size: 12px; font-weight: 700;
-    color: rgba(255,255,255,.55);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 6px; padding: 4px 12px;
-  }
-
-  /* hero right cards */
-  .hero-right { display: flex; flex-direction: column; gap: 16px; }
-  .hero-card {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 16px;
-    padding: 24px 28px;
-    backdrop-filter: blur(8px);
-  }
-  .hero-card-label { font-size: 11px; color: rgba(255,255,255,.45); font-weight: 600; letter-spacing: 1px; margin-bottom: 6px; }
-  .hero-card-value { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 10px; }
-  .hero-card-bar { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; }
-  .hero-card-bar-fill { height: 100%; border-radius: 2px; background: var(--gradient); }
-  .hero-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .hero-mini-label { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 600; letter-spacing: 1px; margin-bottom: 4px; }
-  .hero-mini-value { font-size: 26px; font-weight: 900; color: #fff; }
-
-  /* ─── STATS BAR ────────────────────────────────── */
-  #stats {
-    background: var(--navy2);
-    border-top: 1px solid rgba(255,255,255,.05);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0;
-  }
-  .stat-item {
-    padding: 44px 32px;
-    border-right: 1px solid rgba(255,255,255,.06);
-    text-align: center;
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 900;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .stat-num .unit { font-size: 18px; color: var(--blue); }
-  .stat-unit2 { font-size: 14px; color: var(--accent); font-weight: 700; display: block; margin-top: -4px; margin-bottom: 6px; }
-  .stat-desc { font-size: 13px; color: rgba(255,255,255,.45); }
-
-  /* ─── ABOUT ────────────────────────────────────── */
-  #about { padding: var(--section-py) 0; background: #fff; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .about-tagline {
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 800;
-    color: var(--navy);
-    line-height: 1.4;
-    margin-bottom: 24px;
-    border-left: 4px solid var(--blue);
-    padding-left: 20px;
-  }
-  .about-body { font-size: 16px; color: var(--gray-600); line-height: 1.9; margin-bottom: 32px; }
-  .mv-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .mv-card {
-    padding: 24px;
-    border-radius: var(--radius);
-    border: 1px solid var(--gray-200);
-  }
-  .mv-card-icon { font-size: 22px; margin-bottom: 10px; }
-  .mv-card-title { font-size: 12px; letter-spacing: 2px; font-weight: 700; color: var(--blue); margin-bottom: 8px; text-transform: uppercase; }
-  .mv-card-body { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
-  .certs-title { font-size: 13px; font-weight: 700; color: var(--gray-400); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
-  .cert-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .cert-tag {
-    padding: 6px 14px; border-radius: 8px;
-    background: var(--gray-100); border: 1px solid var(--gray-200);
-    font-size: 12px; font-weight: 600; color: var(--gray-600);
-  }
-  .contact-addr {
-    padding: 20px; background: var(--gray-100); border-radius: 12px; border: 1px solid var(--gray-200);
-  }
-  .contact-addr-label { font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-  .contact-addr-text { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
-  .contact-addr-text strong { color: var(--gray-800); }
-
-  /* ─── SOLUTION ─────────────────────────────────── */
-  #solution { padding: var(--section-py) 0; background: var(--gray-100); }
-  .section-header { text-align: center; margin-bottom: 64px; }
-  .section-header .section-sub { margin: 0 auto; }
-  .solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .sol-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--gray-200);
-    transition: transform .25s, box-shadow .25s;
-  }
-  .sol-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-  .sol-card-icon {
-    width: 56px; height: 56px;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px;
-    margin-bottom: 24px;
-  }
-  .sol-card-icon.blue { background: var(--blue-light); }
-  .sol-card-icon.dark { background: var(--navy); }
-  .sol-card-title { font-size: 22px; font-weight: 800; color: var(--gray-800); margin-bottom: 12px; }
-  .sol-card-sub { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 16px; }
-  .sol-card-body { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 28px; }
-  .sol-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .sol-tag {
-    padding: 5px 12px; border-radius: 6px;
-    background: var(--gray-100); border: 1px solid var(--gray-200);
-    font-size: 12px; font-weight: 600; color: var(--gray-600);
-  }
-  .sol-link { display: inline-flex; align-items: center; gap: 6px; color: var(--blue); font-weight: 700; font-size: 14px; margin-top: 24px; }
-
-  /* ─── BUSINESS ─────────────────────────────────── */
-  #business { padding: var(--section-py) 0; background: #fff; }
-  .tabs { display: flex; gap: 4px; margin-bottom: 48px; background: var(--gray-100); padding: 6px; border-radius: 12px; width: fit-content; }
-  .tab-btn {
-    padding: 10px 24px; border-radius: 8px;
-    font-size: 14px; font-weight: 700;
-    border: none; cursor: pointer;
-    background: transparent; color: var(--gray-600);
-    transition: all .2s;
-  }
-  .tab-btn.active { background: #fff; color: var(--blue); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-
-  .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
-  .biz-card {
-    border: 1px solid var(--gray-200); border-radius: 16px;
-    padding: 32px; background: #fff;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .biz-card:hover { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,86,255,.08); }
-  .biz-card-title { font-size: 18px; font-weight: 800; color: var(--gray-800); margin-bottom: 12px; }
-  .biz-card-body { font-size: 14px; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px; }
-  .biz-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .biz-tag { padding: 4px 10px; background: var(--blue-light); color: var(--blue); font-size: 11px; font-weight: 700; border-radius: 5px; }
-
-  .perf-bar {
-    background: var(--navy); border-radius: 16px; padding: 32px 40px;
-    display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
-  }
-  .perf-item { text-align: center; }
-  .perf-num { font-size: 32px; font-weight: 900; color: #fff; }
-  .perf-label { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; font-weight: 600; }
-  .perf-desc { font-size: 13px; color: rgba(255,255,255,.4); margin-left: auto; line-height: 1.6; }
-
-  /* laser products */
-  .laser-intro { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 40px; max-width: 640px; }
-  .laser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .laser-card {
-    border: 1px solid var(--gray-200); border-radius: 14px;
-    padding: 24px; background: #fff;
-    transition: border-color .2s, transform .2s;
-  }
-  .laser-card:hover { border-color: var(--blue); transform: translateY(-3px); }
-  .laser-card-name { font-size: 18px; font-weight: 900; color: var(--navy); margin-bottom: 8px; margin-top: 12px; }
-  .laser-card-body { font-size: 13px; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
-  .laser-specs { border-top: 1px solid var(--gray-200); padding-top: 14px; }
-  .laser-spec-row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; }
-  .laser-spec-key { color: var(--gray-400); font-weight: 600; }
-  .laser-spec-val { color: var(--gray-800); font-weight: 700; }
-
-  /* ─── TECHNOLOGY ───────────────────────────────── */
-  #technology { padding: var(--section-py) 0; background: var(--navy); }
-  #technology .section-label { color: var(--accent); }
-  #technology .section-title { color: #fff; }
-  #technology .section-title .hl { color: var(--accent); }
-  #technology .section-sub { color: rgba(255,255,255,.55); }
-  .tech-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 64px; }
-  .tech-domain-title {
-    font-size: 14px; font-weight: 700; letter-spacing: 2px;
-    color: var(--accent); text-transform: uppercase;
-    margin-bottom: 24px; padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-  }
-  .tech-cards { display: flex; flex-direction: column; gap: 16px; }
-  .tech-card {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 12px; padding: 24px;
-    transition: border-color .2s, background .2s;
-  }
-  .tech-card:hover { border-color: rgba(26,86,255,.4); background: rgba(26,86,255,.06); }
-  .tech-card-num { font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 2px; margin-bottom: 10px; }
-  .tech-card-title { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.4; }
-  .tech-card-body { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.7; }
-
-  .ip-box {
-    margin-top: 64px;
-    background: rgba(26,86,255,.12);
-    border: 1px solid rgba(26,86,255,.3);
-    border-radius: 16px; padding: 32px 40px;
-  }
-  .ip-box-title { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
-  .ip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .ip-item { text-align: center; }
-  .ip-item-icon { font-size: 24px; margin-bottom: 8px; }
-  .ip-item-text { font-size: 13px; color: rgba(255,255,255,.7); font-weight: 600; }
-
-  /* ─── HISTORY ──────────────────────────────────── */
-  #history { padding: var(--section-py) 0; background: var(--gray-100); }
-  .timeline { position: relative; max-width: 800px; }
-  .timeline::before {
-    content: ''; position: absolute;
-    left: 80px; top: 0; bottom: 0;
-    width: 2px; background: var(--gray-200);
-  }
-  .tl-year-group { margin-bottom: 40px; }
-  .tl-year {
-    font-size: 18px; font-weight: 900; color: var(--blue);
-    margin-bottom: 16px;
-    width: 70px; text-align: right;
-  }
-  .tl-items { padding-left: 100px; }
-  .tl-item {
-    position: relative; padding: 0 0 12px 0;
-    font-size: 14px; color: var(--gray-600);
-  }
-  .tl-item::before {
-    content: ''; position: absolute;
-    left: -26px; top: 7px;
-    width: 8px; height: 8px;
-    border-radius: 50%; background: var(--blue);
-    border: 2px solid #fff;
-  }
-  .tl-item strong { color: var(--gray-800); }
-
-  /* ─── CUSTOMERS ────────────────────────────────── */
-  #customers { padding: 72px 0; background: #fff; }
-  .customers-label { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gray-400); text-transform: uppercase; margin-bottom: 36px; }
-  .logo-track-wrap { overflow: hidden; }
-  .logo-track {
-    display: flex; gap: 12px;
-    animation: marquee 28s linear infinite;
-    width: max-content;
-  }
-  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-  .logo-track:hover { animation-play-state: paused; }
-  .logo-chip {
-    display: inline-flex; align-items: center;
-    padding: 10px 24px;
-    border: 1.5px solid var(--gray-200);
-    border-radius: 100px;
-    font-size: 13px; font-weight: 700; color: var(--gray-600);
-    white-space: nowrap;
-    background: #fff;
-    transition: border-color .2s, color .2s;
-  }
-  .logo-chip:hover { border-color: var(--blue); color: var(--blue); }
-
-  /* ─── NEWS ─────────────────────────────────────── */
-  #news { padding: var(--section-py) 0; background: var(--gray-100); }
-  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .news-card {
-    background: #fff; border-radius: 16px;
-    padding: 28px; border: 1px solid var(--gray-200);
-    display: flex; flex-direction: column;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .news-source { font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
-  .news-title { font-size: 15px; font-weight: 800; color: var(--gray-800); line-height: 1.5; margin-bottom: 10px; }
-  .news-body { font-size: 13px; color: var(--gray-600); line-height: 1.7; flex: 1; }
-  .news-date { font-size: 12px; color: var(--gray-400); margin-top: 16px; font-weight: 600; }
-  .news-more { text-align: center; margin-top: 40px; }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 2px solid var(--blue); color: var(--blue);
-    padding: 12px 28px; border-radius: 10px;
-    font-size: 14px; font-weight: 700;
-    transition: all .2s; background: transparent;
-    cursor: pointer;
-  }
-  .btn-outline:hover { background: var(--blue); color: #fff; }
-
-  /* ─── IR ───────────────────────────────────────── */
-  #ir { padding: var(--section-py) 0; background: #fff; }
-  .ir-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-  .ir-row {
-    display: flex; align-items: center; gap: 20px;
-    padding: 20px 24px; border-radius: 12px;
-    border: 1px solid var(--gray-200);
-    background: #fff;
-    transition: border-color .2s;
-    cursor: pointer;
-  }
-  .ir-row:hover { border-color: var(--blue); }
-  .ir-date { font-size: 12px; color: var(--gray-400); font-weight: 600; min-width: 80px; }
-  .ir-title { font-size: 14px; font-weight: 700; color: var(--gray-800); flex: 1; }
-  .ir-arrow { color: var(--blue); font-size: 16px; }
-  .ir-cta-box {
-    background: var(--navy); border-radius: 16px; padding: 32px 40px;
-    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-  }
-  .ir-cta-text { color: rgba(255,255,255,.7); font-size: 15px; line-height: 1.7; }
-  .ir-cta-text strong { color: #fff; display: block; font-size: 18px; margin-bottom: 4px; }
-
-  /* ─── CONTACT ──────────────────────────────────── */
-  #contact { padding: var(--section-py) 0; background: var(--gray-100); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .contact-info h2 { font-size: 34px; font-weight: 900; color: var(--navy); margin-bottom: 16px; line-height: 1.3; }
-  .contact-info h2 span { color: var(--blue); }
-  .contact-info > p { font-size: 16px; color: var(--gray-600); line-height: 1.8; margin-bottom: 40px; }
-  .contact-addr-list { display: flex; flex-direction: column; gap: 14px; }
-
-  .contact-form { background: #fff; border-radius: 20px; padding: 40px; box-shadow: var(--shadow); }
-  .form-title { font-size: 20px; font-weight: 800; color: var(--gray-800); margin-bottom: 4px; }
-  .form-sub { font-size: 13px; color: var(--gray-400); margin-bottom: 20px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { margin-bottom: 14px; }
-  .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--gray-600); margin-bottom: 6px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 12px 16px;
-    border: 1.5px solid var(--gray-200); border-radius: 10px;
-    font-size: 14px; color: var(--gray-800);
-    background: var(--gray-100);
-    outline: none; transition: border-color .2s, background .2s;
-    font-family: inherit;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--blue); background: #fff;
-  }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-type-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-  .form-type-btn {
-    padding: 7px 14px; border-radius: 8px;
-    border: 1.5px solid var(--gray-200); background: #fff;
-    font-size: 12px; font-weight: 700; color: var(--gray-600);
-    cursor: pointer; transition: all .2s;
-  }
-  .form-type-btn.active, .form-type-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
-  .form-submit {
-    width: 100%; padding: 14px;
-    background: var(--blue); color: #fff;
-    border: none; border-radius: 10px;
-    font-size: 15px; font-weight: 700;
-    cursor: pointer; transition: background .2s;
-  }
-  .form-submit:hover { background: var(--blue-dark); }
-  .form-notice { font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 10px; }
-  #form-success {
-    display: none; text-align: center; padding: 24px;
-    color: #059669; font-weight: 700; font-size: 16px;
-  }
-
-  /* ─── FOOTER ───────────────────────────────────── */
-  #footer { background: var(--navy); padding: 64px 0 32px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-  .footer-logo { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 12px; }
-  .footer-logo span { color: var(--accent); }
-  .footer-desc { font-size: 14px; color: rgba(255,255,255,.4); line-height: 1.8; max-width: 280px; }
-  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 16px; }
-  .footer-links { display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,.55); transition: color .2s; }
-  .footer-links a:hover { color: #fff; }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.07);
-    padding-top: 24px;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-  }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,.3); }
-  .footer-legal { display: flex; gap: 20px; }
-  .footer-legal a { font-size: 12px; color: rgba(255,255,255,.3); transition: color .2s; }
-  .footer-legal a:hover { color: rgba(255,255,255,.7); }
-
-  /* ─── FLOATING ─────────────────────────────────── */
-  .float-cta {
-    position: fixed; bottom: 32px; right: 32px;
-    background: var(--blue); color: #fff;
-    padding: 12px 22px; border-radius: 100px;
-    font-size: 13px; font-weight: 700;
-    box-shadow: 0 8px 24px rgba(26,86,255,.4);
-    display: flex; align-items: center; gap: 8px;
-    cursor: pointer; z-index: 999;
-    transition: transform .2s, box-shadow .2s;
-    border: none;
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-  .float-cta:hover { box-shadow: 0 12px 32px rgba(26,86,255,.5); animation: none; transform: translateY(-2px); }
-  .float-dot {
-    width: 8px; height: 8px;
-    background: var(--accent); border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  /* ─── Responsive ───────────────────────────────── */
-  @media (max-width: 960px) {
-    .hero-content { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .solution-grid, .biz-grid { grid-template-columns: 1fr; }
-    .laser-grid { grid-template-columns: 1fr 1fr; }
-    .tech-domains { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2,1fr); }
-    .news-grid { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .ip-grid { grid-template-columns: repeat(2,1fr); }
-  }
-  @media (max-width: 640px) {
-    :root { --section-py: 64px; }
-    .container { padding: 0 20px; }
-    .nav-menu { display: none; }
-    .stats-grid { grid-template-columns: repeat(2,1fr); }
-    .news-grid { grid-template-columns: 1fr; }
-    .laser-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .perf-bar { flex-direction: column; text-align: center; }
-    .form-row { grid-template-columns: 1fr; }
-    .mv-cards { grid-template-columns: 1fr; }
-  }
+:root{--navy:#1a2e52;--navy-light:#2d4a7a;--navy-pale:#e8edf5;--gray200:#e2e8f0;--gray500:#64748b;--gray700:#334155;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;background:#f4f6fa;color:var(--gray700);}
+.wrap{max-width:1100px;margin:0 auto;}
+.site-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:#fff;padding:28px 24px 20px;text-align:center;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header-brand{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.7;margin-bottom:6px;}
+.header-title{font-size:26px;font-weight:800;letter-spacing:-0.5px;}
+.header-sub{font-size:13px;opacity:.75;margin-top:6px;}
+.header-meta{display:flex;gap:16px;margin-top:14px;justify-content:center;flex-wrap:wrap;}
+.header-badge{background:rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;}
+main{padding:28px 20px 60px;}
+section{max-width:1100px;margin:0 auto 40px;}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--navy-pale);}
+.section-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:#fef3c7;}
+.section-title{font-size:17px;font-weight:800;color:var(--navy);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+a.card{display:block;background:#fff;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;border:1px solid var(--gray200);transition:box-shadow .2s,transform .15s;}
+a.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.10);transform:translateY(-2px);}
+.card-top{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;background:var(--navy);color:#fff;}
+.badge.latest{background:#16a34a;}
+.card-date{font-size:11px;color:var(--gray500);margin-left:auto;}
+.card-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.45;margin-bottom:8px;}
+.card-summary{font-size:12.5px;color:var(--gray500);line-height:1.6;}
+footer{text-align:center;padding:24px;font-size:11px;color:var(--gray500);border-top:1px solid var(--gray200);}
 </style>
 </head>
 <body>
-
-<!-- ─── NAV ──────────────────────────────────────── -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">Blue<span>Tile</span>Lab</a>
-    <ul class="nav-menu">
-      <li><a href="#about">회사소개</a></li>
-      <li><a href="#solution">솔루션</a></li>
-      <li><a href="#business">사업소개</a></li>
-      <li><a href="#technology">기술소개</a></li>
-      <li><a href="#news">뉴스 &amp; IR</a></li>
-      <li><a href="#contact" class="nav-cta">문의하기</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ─── HERO ─────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        <span>2026 Pre-IPO · 2027 코스닥 상장 준비</span>
-      </div>
-      <h1 class="hero-h1">
-        AI 비전과<br>
-        <span class="hl">극초단파 레이저</span>로<br>
-        제조 산업의<br>미래를 설계합니다
-      </h1>
-      <p class="hero-sub">
-        반도체 후공정·이차전지 AI 비전 검사 시스템과<br>
-        펨토초 레이저 광원의 국산화를 선도하는<br>
-        딥테크 기업 블루타일랩입니다.
-      </p>
-      <div class="hero-btns">
-        <a href="#business" class="btn-primary">사업 살펴보기 →</a>
-        <a href="#contact" class="btn-ghost">투자 문의</a>
-      </div>
-      <div class="hero-clients">
-        <span class="hero-clients-label">주요 고객사</span>
-        <div class="hero-clients-list">
-          <span class="hero-client-tag">LG에너지솔루션</span>
-          <span class="hero-client-tag">SK하이닉스</span>
-          <span class="hero-client-tag">삼성전기</span>
-          <span class="hero-client-tag">넥스틴</span>
-          <span class="hero-client-tag">AP Systems</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-label">2024 연간 매출</div>
-        <div class="hero-card-value">56억 원</div>
-        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:72%"></div></div>
-        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;">전년 대비 2배+ 성장</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">누적 투자 유치</div>
-        <div class="hero-card-value">97억 원</div>
-        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:55%;background:linear-gradient(135deg,#00d4ff,#1a56ff)"></div></div>
-        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;">Series A · B 포함</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-row">
-          <div>
-            <div class="hero-mini-label">임직원</div>
-            <div class="hero-mini-value">43명</div>
-          </div>
-          <div>
-            <div class="hero-mini-label">설립연도</div>
-            <div class="hero-mini-value">2016</div>
-          </div>
-        </div>
-      </div>
+<div class="wrap">
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">BlueTileLab · 전략기획실</div>
+    <div class="header-title">📰 Daily Intelligence Brief</div>
+    <div class="header-sub">블루타일랩 전략기획실 · AI비전검사 & 레이저 & IPO 뉴스레터</div>
+    <div class="header-meta">
+      <span class="header-badge">📚 전체 18호</span>
     </div>
   </div>
-</section>
-
-<!-- ─── STATS ─────────────────────────────────────── -->
-<section id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num" id="cnt1">56<span class="unit">억</span></div>
-        <span class="stat-unit2">원 매출 (2024)</span>
-        <div class="stat-desc">전년 대비 2배+ 성장</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" id="cnt2">97<span class="unit">억</span></div>
-        <span class="stat-unit2">원 누적 투자</span>
-        <div class="stat-desc">Series A · B 포함</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" id="cnt3">43<span class="unit">명</span></div>
-        <span class="stat-unit2">임직원</span>
-        <div class="stat-desc">박사급 R&amp;D 인력 다수</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" style="font-size:36px;">2027</div>
-        <span class="stat-unit2">코스닥 IPO 목표</span>
-        <div class="stat-desc">Pre-IPO 2026년 6월 클로징</div>
-      </div>
-    </div>
+</header>
+<main>
+<section>
+  <div class="section-header">
+    <div class="section-icon">🗂️</div>
+    <div class="section-title">발행 아카이브</div>
   </div>
-</section>
-
-<!-- ─── ABOUT ─────────────────────────────────────── -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div>
-        <span class="section-label">Company</span>
-        <div class="about-tagline">보이지 않는 것을 보고,<br>닿지 않는 곳을 가공합니다</div>
-        <p class="about-body">
-          블루타일랩은 2016년 한국전자통신연구원(ETRI) 창업기업으로 출발해,
-          AI 기반 머신비전 검사 시스템과 극초단파(펨토초) 레이저 원천기술 국산화라는
-          두 축으로 성장하고 있는 딥테크 기업입니다.<br><br>
-          AI 비전은 양산 라인의 결함을 사람보다 빠르고 정확하게 찾아내고,
-          펨토초 레이저는 소재에 열을 남기지 않고 정밀하게 가공합니다.
-          두 기술이 만나는 곳에 제조 산업의 다음 기준이 있습니다.
-        </p>
-        <div class="mv-cards">
-          <div class="mv-card">
-            <div class="mv-card-icon">🎯</div>
-            <div class="mv-card-title">Mission</div>
-            <div class="mv-card-body">AI 비전과 레이저 기술의 융합으로 제조 현장의 품질 한계를 돌파하고, 핵심 기술의 국산화를 통해 산업 경쟁력을 높입니다.</div>
-          </div>
-          <div class="mv-card">
-            <div class="mv-card-icon">🚀</div>
-            <div class="mv-card-title">Vision</div>
-            <div class="mv-card-body">2027년 코스닥 상장을 발판으로, 반도체·이차전지 검사 장비와 펨토초 레이저 시장에서 글로벌 Top-Tier 기업으로 성장합니다.</div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="certs-title" style="margin-bottom:14px;">인증 &amp; 수상</div>
-        <div class="cert-tags" style="margin-bottom:36px;">
-          <span class="cert-tag">🏅 이노비즈 인증</span>
-          <span class="cert-tag">✅ ISO 9001·14001·45001</span>
-          <span class="cert-tag">🏢 벤처기업 인증</span>
-          <span class="cert-tag">⭐ 예비기술평가 A등급</span>
-          <span class="cert-tag">🏆 혁신창업대상 수상</span>
-          <span class="cert-tag">🔩 소부장 전문기업</span>
-          <span class="cert-tag">💳 기업신용평가 BB+</span>
-          <span class="cert-tag">🔬 ETRI 원천기술 기반</span>
-        </div>
-        <div class="certs-title">오시는 길</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div class="contact-addr">
-            <div class="contact-addr-label">본사 (대전)</div>
-            <div class="contact-addr-text">대전광역시 유성구 가정로 218, 402호<br>(ETRI 융합기술연구생산센터)</div>
-          </div>
-          <div class="contact-addr">
-            <div class="contact-addr-label">R&amp;D 센터 (인천)</div>
-            <div class="contact-addr-text">인천광역시 연수구 인천타워대로 99, 1303호<br>(송도동, 애니오션빌딩)</div>
-          </div>
-          <div class="contact-addr">
-            <div class="contact-addr-label">R&amp;D 센터 (화성)</div>
-            <div class="contact-addr-text">경기도 화성시 동탄산단9길<br>AP시스템(주) 제2사업장, 7층</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="grid">
+    <a class="card" href="2026-07-21.html">
+      <div class="card-top"><span class="badge latest">최신</span><span class="card-date">2026.07.21</span></div>
+      <div class="card-title">2026년 7월 21일 (화) 뉴스레터</div>
+      <div class="card-summary">'관저 이전 부실감사 의혹' 유병호 감사위원 구속…증거인멸 우려 · 현대차 노조 2차 부분파업 돌입…누적 손실 7000억원 전망</div>
+    </a>
+    <a class="card" href="2026-07-20.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.20</span></div>
+      <div class="card-title">2026년 7월 20일 (월) 뉴스레터</div>
+      <div class="card-summary">李대통령 "최소한 상식 갖고 비판해야"…국힘 '당무 개입' 공세 반박 · 인천 서해구 "쿠팡물류센터 붕괴 가능성…인근 대피령"</div>
+    </a>
+    <a class="card" href="2026-07-19.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.19</span></div>
+      <div class="card-title">2026년 7월 19일 (일) 뉴스레터</div>
+      <div class="card-summary">인천 쿠팡 물류센터 화재 '대응 2단계'…121명 대피 · 한성숙 총리 "호우 피해 국민께 위로…장비·인력 총투입해 복구"</div>
+    </a>
+    <a class="card" href="2026-07-16.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.16</span></div>
+      <div class="card-title">2026년 7월 16일 (목) 뉴스레터</div>
+      <div class="card-summary">李 대통령 "자산배분 부동산 비중 원시적으로 너무 커" · 삼성 쫓던 中 저가폰, 칩플레이션에 추락</div>
+    </a>
+    <a class="card" href="2026-07-15.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.15</span></div>
+      <div class="card-title">2026년 7월 15일 (수) 뉴스레터</div>
+      <div class="card-summary">[국제유가] 미, 이란 공습 속에 상승 지속...이란 봉쇄 개시 · '요란한 장맛비' 서울 130㎜ 폭우…오후까지 이어질 듯</div>
+    </a>
+    <a class="card" href="2026-07-14.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.14</span></div>
+      <div class="card-title">2026년 7월 14일 (화) 뉴스레터</div>
+      <div class="card-summary">반도체 투매에 7000선 반납한 '검은 월요일'…코스피 4월 말 이후 '최저' · 미군 "이란 공습 개시...3일 연속 야간 공격" [상보]</div>
+    </a>
+    <a class="card" href="2026-07-13.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.13</span></div>
+      <div class="card-title">2026년 7월 13일 (월) 뉴스레터</div>
+      <div class="card-summary">"마이크론 비켜!"…나스닥 삼킨 SK하이닉스, 40조 잭팟 터졌다 · 새 법원행정처장에 노경필 대법관</div>
+    </a>
+    <a class="card" href="2026-07-10.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.10</span></div>
+      <div class="card-title">2026년 7월 10일 (금) 뉴스레터</div>
+      <div class="card-summary">'체포 방해' 윤석열 징역 7년 확정…계엄 583일 만에 첫 대법 판결(종합) · 집중호우로 1명 실종·758명 대피…시설 피해 453건</div>
+    </a>
+    <a class="card" href="2026-07-08.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.08</span></div>
+      <div class="card-title">2026년 7월 8일 (수) 뉴스레터</div>
+      <div class="card-summary">미 "강력한 공습 시작", 이란 '맞대응' 경고...종전 MOU 무산 위기 · 靑 "韓, '연 15조' 나토 공동조달 진출 발판"…우크라엔 1억弗 지원</div>
+    </a>
+    <a class="card" href="2026-07-03.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.03</span></div>
+      <div class="card-title">2026년 7월 3일 (금) 뉴스레터</div>
+      <div class="card-summary">"걱정말아요" SK하이닉스, 목표가 또 상향 '420만원'-KB · 6월 소비자물가 3.2%↑…석유류·먹거리·서비스 줄상승</div>
+    </a>
+    <a class="card" href="2026-07-02.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.02</span></div>
+      <div class="card-title">2026년 7월 2일 (목) 뉴스레터</div>
+      <div class="card-summary">코스피 5% 넘게 급락…8000선 붕괴에 매도 사이드카 · 6월 수출 첫 1000억 달러 돌파…반도체도 첫 400억 달러 넘어</div>
+    </a>
+    <a class="card" href="2026-07-01.html">
+      <div class="card-top"><span class="badge">2026.07</span><span class="card-date">2026.07.01</span></div>
+      <div class="card-title">2026년 7월 1일 (수) 뉴스레터</div>
+      <div class="card-summary">李대통령, 한성숙 국무총리 임명안 재가…7월 1일 취임 · 전남광주통합특별시의회 공식 출범…초대 의장 송형곤 의원 선출</div>
+    </a>
+    <a class="card" href="2026-06-30.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.30</span></div>
+      <div class="card-title">2026년 6월 30일 (화) 뉴스레터</div>
+      <div class="card-summary">판 커지는 29일 靑 '1000조 프로젝트 보고회'…이재용·최태원도 '참석' · 삼성·SK 등 1000조원 승부수…'호남 반도체 공장+α' 산업 지도 바꾼다</div>
+    </a>
+    <a class="card" href="2026-06-29.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.29</span></div>
+      <div class="card-title">2026년 6월 29일 (월) 뉴스레터</div>
+      <div class="card-summary">이 대통령, 오늘 3대 메가프로젝트 보고회 주재…삼성·SK 반도체 등 2000조 투자 관측도 · 삼성·SK 등 1000조원 승부수…'호남 반도체 공장+α' 산업 지도 바꾼다</div>
+    </a>
+    <a class="card" href="2026-06-26.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.26</span></div>
+      <div class="card-title">2026년 6월 26일 (금) 뉴스레터</div>
+      <div class="card-summary">코스피 8%대 급락에 사이드카·서킷브레이커 잇단 발동 · [2보] '매관매직' 김건희 알선수재 등 1심 징역 7년…법원, 금품수수 '대가성' 인정</div>
+    </a>
+    <a class="card" href="2026-06-18.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.18</span></div>
+      <div class="card-title">2026년 6월 18일 (목) 뉴스레터</div>
+      <div class="card-summary">이재명 대통령, G7 정상회의 끝으로 유럽 순방 종료…18일 귀국 · [속보] 코스피, 사상 첫 장중 9000 돌파</div>
+    </a>
+    <a class="card" href="2026-06-16.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.16</span></div>
+      <div class="card-title">2026년 6월 16일 (화) 뉴스레터</div>
+      <div class="card-summary">미국, 이란 종전 땐 한국 기업 참여 454조 원 재건기금 검토 · 종전 합의에 亞 증시 환호…유가·환율·국채금리 하락</div>
+    </a>
+    <a class="card" href="2026-06-12.html">
+      <div class="card-top"><span class="badge">2026.06</span><span class="card-date">2026.06.12</span></div>
+      <div class="card-title">2026년 6월 12일 (금) 뉴스레터</div>
+      <div class="card-summary">특검, 윤석열 징역 30년 구형 — 오늘 오전 10시 30분 1심 선고 · 한국 vs 체코 2026 FIFA 월드컵 첫 경기 — 오늘 오전 11시 킥오프</div>
+    </a>
   </div>
 </section>
-
-<!-- ─── SOLUTION ──────────────────────────────────── -->
-<section id="solution">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Solutions</span>
-      <h2 class="section-title">두 가지 원천 기술,<br>하나의 <span class="hl">제조 혁신</span></h2>
-      <p class="section-sub">딥러닝 기반 광학 검사와 펨토초 레이저 가공. 블루타일랩의 두 기술이 제조 산업의 한계를 함께 넘습니다.</p>
-    </div>
-    <div class="solution-grid">
-      <div class="sol-card">
-        <div class="sol-card-icon blue">🔬</div>
-        <div class="sol-card-title">Machine Vision AI</div>
-        <div class="sol-card-sub">양산 라인의 눈, 딥러닝이 결함을 잡습니다</div>
-        <p class="sol-card-body">고객사 공정 환경에 최적화된 맞춤형 광학계와 딥러닝 알고리즘으로 반도체 후공정·이차전지 양산 라인의 미세 결함을 자동 검출합니다. 육안 검사의 한계를 넘어, 수율과 품질을 동시에 높입니다.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Vision Hardware</span>
-          <span class="sol-tag">AI Algorithms &amp; SW</span>
-          <span class="sol-tag">Defect Detection</span>
-          <span class="sol-tag">Yield Improvement</span>
-        </div>
-        <a href="#business" class="sol-link">자세히 보기 →</a>
-      </div>
-      <div class="sol-card">
-        <div class="sol-card-icon dark">⚡</div>
-        <div class="sol-card-title">Ultra Fast Laser</div>
-        <div class="sol-card-sub">열을 남기지 않는 가공, 펨토초의 정밀함입니다</div>
-        <p class="sol-card-body">ETRI 원천기술 기반으로 자체 개발한 펨토초(10⁻¹⁵초) 레이저 광원. 극초단 펄스로 소재에 열 손상을 주지 않고 반도체·배터리 소재를 정밀 가공·검사합니다. 수입 의존 국내 시장의 국산화를 선도하는 딥테크 핵심 기술입니다.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Femtosecond Laser</span>
-          <span class="sol-tag">Zero Thermal Damage</span>
-          <span class="sol-tag">의료용·산업용</span>
-          <span class="sol-tag">국산화</span>
-        </div>
-        <a href="#business" class="sol-link">자세히 보기 →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── BUSINESS ──────────────────────────────────── -->
-<section id="business">
-  <div class="container">
-    <span class="section-label">Business</span>
-    <h2 class="section-title">두 가지 핵심 사업으로<br><span class="hl">제조 혁신을 이끕니다</span></h2>
-    <p class="section-sub" style="margin-bottom:40px;">반도체·이차전지 AI 비전 검사와 극초단파 레이저 원천기술, 두 축이 시너지를 내며 제조 장비 시장의 새로운 기준을 만듭니다.</p>
-
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('vision', this)">머신비전 AI</button>
-      <button class="tab-btn" onclick="switchTab('laser', this)">극초단파 레이저</button>
-    </div>
-
-    <!-- 머신비전 탭 -->
-    <div id="tab-vision" class="tab-content active">
-      <div class="biz-grid">
-        <div class="biz-card">
-          <span class="badge badge-blue" style="margin-bottom:14px;">반도체 후공정</span>
-          <div class="biz-card-title">반도체 후공정 비전 검사</div>
-          <p class="biz-card-body">SAW Sort, EMI 검사, Tray to Boat 등 반도체 패키징·후공정의 전 단계를 커버하는 맞춤형 머신비전 솔루션. 딥러닝 기반 결함 검출로 업계 최고 수준의 정확도를 제공합니다. 소재 특성에 적합한 비전시스템 설계로 검사 정확도 99.99% 이상 달성.</p>
-          <div class="biz-tags">
-            <span class="biz-tag">SAW Sort System</span>
-            <span class="biz-tag">EMI Loader/Unloader</span>
-            <span class="biz-tag">Tray to Boat</span>
-            <span class="biz-tag">딥러닝 결함감지</span>
-            <span class="biz-tag">SK Hynix · Skyworks</span>
-          </div>
-        </div>
-        <div class="biz-card">
-          <span class="badge badge-green" style="margin-bottom:14px;">이차전지</span>
-          <div class="biz-card-title">이차전지 전극 공정 검사</div>
-          <p class="biz-card-body">클린에너지 양산 및 수율 관리를 위한 AI 비전 검사 시스템. NG 마킹, DENT 검사, 치수 비전, 통합비전(CIS)까지 배터리 전극 공정 전반의 불량 검출을 담당합니다. LGES 글로벌 법인 50대 이상 납품.</p>
-          <div class="biz-tags">
-            <span class="biz-tag">NG Marking System</span>
-            <span class="biz-tag">DENT Vision</span>
-            <span class="biz-tag">치수비전(음극/양극)</span>
-            <span class="biz-tag">통합비전 CIS</span>
-            <span class="biz-tag">LG에너지솔루션</span>
-          </div>
-        </div>
-      </div>
-      <div class="perf-bar">
-        <div class="perf-item">
-          <div class="perf-num">98.79%</div>
-          <div class="perf-label">FPY 달성률</div>
-        </div>
-        <div class="perf-item">
-          <div class="perf-num">99.67%</div>
-          <div class="perf-label">Pickup Rate</div>
-        </div>
-        <div class="perf-item">
-          <div class="perf-num">97.6%</div>
-          <div class="perf-label">Gage R&amp;R</div>
-        </div>
-        <div class="perf-desc">
-          글로벌 고객사 현장 실증 기반의 검증된 수치.<br>
-          Skyworks 미국 법인 양산 현장 적용 성과.
-        </div>
-      </div>
-    </div>
-
-    <!-- 레이저 탭 -->
-    <div id="tab-laser" class="tab-content">
-      <p class="laser-intro">ETRI 공동연구로 개발한 펨토초(극초단파) 레이저 원천기술을 기반으로, 반도체·이차전지·의료·SiC 공정에 최적화된 레이저 광원을 공급합니다. 수입 의존도가 높은 국내 레이저 소스 시장의 국산화를 선도합니다.</p>
-      <div class="laser-grid">
-        <div class="laser-card">
-          <span class="badge badge-blue">반도체 검사</span>
-          <div class="laser-card-name">SFAM – Ⅰ</div>
-          <p class="laser-card-body">260Hz 고속 반복률의 극자외선 대역 레이저. 반도체 웨이퍼 검사 장비에 최적화된 광원으로 넥스틴 등에 공급 중.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">파장</span><span class="laser-spec-val">800–900 nm</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">반복률</span><span class="laser-spec-val">260 Hz</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">Wafer 검사</span></div>
-          </div>
-        </div>
-        <div class="laser-card">
-          <span class="badge badge-blue">반도체 검사</span>
-          <div class="laser-card-name">SFAM – X</div>
-          <p class="laser-card-body">SFAM-I의 확장형 고출력 모델. 넥스틴 신규향 반도체 검사 장비 공급 및 추가 수요 대응 중.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">유형</span><span class="laser-spec-val">확장형 고출력</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">Wafer 검사</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">상태</span><span class="laser-spec-val">양산 공급</span></div>
-          </div>
-        </div>
-        <div class="laser-card">
-          <span class="badge badge-navy">의료·바이오</span>
-          <div class="laser-card-name">Spike-920</div>
-          <p class="laser-card-body">국내 최초 920nm 펨토초 광섬유 레이저. 이광자 현미경 고해상도 영상 구현. ETRI 공동개발, 미국 특허 출원.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">파장</span><span class="laser-spec-val">920 nm</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">펄스</span><span class="laser-spec-val">펨토초</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">이광자 현미경</span></div>
-          </div>
-        </div>
-        <div class="laser-card">
-          <span class="badge badge-green">이차전지·가공</span>
-          <div class="laser-card-name">Spike-1064-150</div>
-          <p class="laser-card-body">1064nm 150W급 피코초 레이저. 이차전지 전극 노칭 및 배터리 소재 레이저 가공에 최적화. DE&amp;T 등 장비사 공급.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">파장</span><span class="laser-spec-val">1064 nm</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">출력</span><span class="laser-spec-val">150 W</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">전극 노칭</span></div>
-          </div>
-        </div>
-        <div class="laser-card">
-          <span class="badge badge-blue">반도체·HBM</span>
-          <div class="laser-card-name">Spike-1030-50</div>
-          <p class="laser-card-body">1030nm 50W 펨토초 레이저. HBM 반도체 공정, TGV 가공, SiC 웨이퍼 트렌칭 활용. AP Systems 공급.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">파장</span><span class="laser-spec-val">1030 nm</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">출력</span><span class="laser-spec-val">50 W</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">HBM · TGV · SiC</span></div>
-          </div>
-        </div>
-        <div class="laser-card">
-          <span class="badge badge-orange">개발 중</span>
-          <div class="laser-card-name">ARI Module / System</div>
-          <p class="laser-card-body">Warpage 측정 설비 신규 개발. SpaceX 스타링크 공장 공급 협의 진행 중.</p>
-          <div class="laser-specs">
-            <div class="laser-spec-row"><span class="laser-spec-key">응용</span><span class="laser-spec-val">Warpage 측정</span></div>
-            <div class="laser-spec-row"><span class="laser-spec-key">파트너</span><span class="laser-spec-val">SpaceX (협의 중)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── TECHNOLOGY ─────────────────────────────────── -->
-<section id="technology">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Technology</span>
-      <h2 class="section-title">원천기술이 만드는<br><span class="hl">경쟁 우위</span></h2>
-      <p class="section-sub">ETRI 기술 기반의 독자적 알고리즘과 광학 설계 역량으로, 장비 시장에서 대체 불가능한 기술 경쟁력을 보유합니다.</p>
-    </div>
-    <div class="tech-domains">
-      <div>
-        <div class="tech-domain-title">머신비전 AI 기술</div>
-        <div class="tech-cards">
-          <div class="tech-card">
-            <div class="tech-card-num">TECH 01</div>
-            <div class="tech-card-title">맞춤형 광학계·하이브리드 비전 알고리즘 기반 고정밀 결함 감지</div>
-            <p class="tech-card-body">고객사별 검사 환경에 최적화된 조명·광학계를 설계하고, 딥러닝과 전통 알고리즘을 하이브리드로 결합해 99%+ 결함 검출 정확도를 실현합니다. 정형화되지 않은 이미지도 분류 가능합니다.</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-card-num">TECH 02</div>
-            <div class="tech-card-title">고속 다단계 공정을 위한 시스템 통합 및 데이터 연동 최적화</div>
-            <p class="tech-card-body">반도체·이차전지 양산 라인의 다단계 공정 전 구간에 걸쳐 비전 시스템을 통합하고, 로그 데이터를 체계적으로 수집·분석해 공정 최적화 리포트를 제공합니다.</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-card-num">TECH 03</div>
-            <div class="tech-card-title">지능형 품질 모니터링 및 실시간 공정 개입 연동 기술</div>
-            <p class="tech-card-body">검사 결과를 실시간으로 공정 제어 시스템(MES/PLC)에 피드백하여, 불량 발생 시 즉각적인 인터락·경보·자동 마킹이 이루어지는 통합 품질 관리 환경을 구현합니다.</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="tech-domain-title">극초단파 레이저 기술</div>
-        <div class="tech-cards">
-          <div class="tech-card">
-            <div class="tech-card-num">TECH 01</div>
-            <div class="tech-card-title">펨토초 펄스 코어 설계 기술</div>
-            <p class="tech-card-body">소산성 솔리톤(Dissipative Soliton) 구조를 적용한 광섬유 레이저 설계로, 10⁻¹⁵초 수준의 초단 펄스를 안정적으로 생성합니다. ETRI 공동 개발, 미국 특허 2건 출원으로 원천기술을 확보했습니다.</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-card-num">TECH 02</div>
-            <div class="tech-card-title">셔터프리 초고속 출력 제어 기반의 공정특화 빔 및 파장 최적화</div>
-            <p class="tech-card-body">기존 셔터 방식의 응답 지연 없이 전기적 신호만으로 레이저 출력을 고속 제어합니다. 파장·펄스폭·반복률을 공정 요건에 맞춰 조정하는 맞춤형 광원 공급 능력을 갖추고 있습니다.</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-card-num">SPEC</div>
-            <div class="tech-card-title">레이저 라인업 스펙 요약</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
-              <div style="font-size:12px;color:rgba(255,255,255,.5);">Ti:S / fs / 800 nm — 의료용</div>
-              <div style="font-size:12px;color:rgba(255,255,255,.5);">Nd:Fiber / 920 nm — 의료용</div>
-              <div style="font-size:12px;color:rgba(255,255,255,.5);">Nd:YVO4 / 1064 nm — 산업용</div>
-              <div style="font-size:12px;color:rgba(255,255,255,.5);">Yb:Fiber / 1030 nm — 산업용</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ip-box">
-      <div class="ip-box-title">IP &amp; 연구 성과</div>
-      <div class="ip-grid">
-        <div class="ip-item">
-          <div class="ip-item-icon">🇺🇸</div>
-          <div class="ip-item-text">미국 특허 2건 공동 출원</div>
-        </div>
-        <div class="ip-item">
-          <div class="ip-item-icon">📄</div>
-          <div class="ip-item-text">SCI급 논문 발표</div>
-        </div>
-        <div class="ip-item">
-          <div class="ip-item-icon">🔬</div>
-          <div class="ip-item-text">ETRI 기술 이전</div>
-        </div>
-        <div class="ip-item">
-          <div class="ip-item-icon">🏆</div>
-          <div class="ip-item-text">국내 특허 20여 건</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── HISTORY ────────────────────────────────────── -->
-<section id="history">
-  <div class="container">
-    <span class="section-label">History</span>
-    <h2 class="section-title" style="margin-bottom:48px;">연혁 &amp; <span class="hl">마일스톤</span></h2>
-    <div class="timeline">
-      <div class="tl-year-group">
-        <div class="tl-year">2026</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>예비기술평가 A등급 획득</strong> — 코스닥 상장 준비 (이크레더블)</div>
-          <div class="tl-item"><strong>Pre-IPO 투자 클로징 예정</strong> — 6월</div>
-          <div class="tl-item">기업신용평가 BB+ (나이스디앤비)</div>
-        </div>
-      </div>
-      <div class="tl-year-group">
-        <div class="tl-year">2025</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>대한민국 혁신창업대상</strong> — 국가과학기술연구회 이사장상</div>
-          <div class="tl-item">ISO 9001·14001·45001 인증 취득</div>
-          <div class="tl-item">이노비즈(기술혁신형 중소기업) 선정</div>
-          <div class="tl-item">병역지정업체(연구기관) 신규 선정</div>
-          <div class="tl-item">과학기술정보통신부 장관표창 수상</div>
-        </div>
-      </div>
-      <div class="tl-year-group">
-        <div class="tl-year">2024</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>Series B 30억 투자유치</strong> — AP Systems, DE&amp;T</div>
-          <div class="tl-item">2024 디지털이노베이션 대상 수상</div>
-          <div class="tl-item">소재·부품·장비 전문기업 확인</div>
-          <div class="tl-item"><strong>매출 56억 달성</strong> — 전년 대비 2배+</div>
-        </div>
-      </div>
-      <div class="tl-year-group">
-        <div class="tl-year">2023</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>Series A 50억 투자유치</strong> — KST조합 외</div>
-          <div class="tl-item">연구소기업 등록 (연구개발특구진흥재단)</div>
-          <div class="tl-item">ETRI 우수연구성과상 수상</div>
-        </div>
-      </div>
-      <div class="tl-year-group">
-        <div class="tl-year">2021</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>Seed 투자 17.14억 유치</strong></div>
-          <div class="tl-item">과기부 공공기술사업화 1호 펀드 선정</div>
-        </div>
-      </div>
-      <div class="tl-year-group">
-        <div class="tl-year">2016</div>
-        <div class="tl-items">
-          <div class="tl-item"><strong>블루타일랩 설립</strong> — ETRI 전문연구원 창업</div>
-          <div class="tl-item">한국전자통신연구원(ETRI) 원천기술 기반</div>
-          <div class="tl-item">대전 유성구 ETRI 연구생산센터 입주</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CUSTOMERS ──────────────────────────────────── -->
-<section id="customers">
-  <div class="container">
-    <div class="customers-label">주요 고객사 &amp; 파트너</div>
-    <div class="logo-track-wrap">
-      <div class="logo-track">
-        <span class="logo-chip">ASML</span>
-        <span class="logo-chip">지멘스</span>
-        <span class="logo-chip">엠코테크놀로지</span>
-        <span class="logo-chip">SK 하이닉스</span>
-        <span class="logo-chip">DB Hitek</span>
-        <span class="logo-chip">TSMC</span>
-        <span class="logo-chip">디아이씨</span>
-        <span class="logo-chip">SEMES</span>
-        <span class="logo-chip">삼성전자</span>
-        <span class="logo-chip">AP시스템즈</span>
-        <span class="logo-chip">APS이노베이션</span>
-        <span class="logo-chip">롯데에너지머티리얼즈</span>
-        <span class="logo-chip">LG에너지솔루션</span>
-        <span class="logo-chip">제너셈</span>
-        <span class="logo-chip">삼성전기</span>
-        <span class="logo-chip">넥스틴</span>
-        <span class="logo-chip">코닉세미텍</span>
-        <span class="logo-chip">한국전자통신연구원</span>
-        <!-- duplicate for seamless loop -->
-        <span class="logo-chip">ASML</span>
-        <span class="logo-chip">지멘스</span>
-        <span class="logo-chip">엠코테크놀로지</span>
-        <span class="logo-chip">SK 하이닉스</span>
-        <span class="logo-chip">DB Hitek</span>
-        <span class="logo-chip">TSMC</span>
-        <span class="logo-chip">디아이씨</span>
-        <span class="logo-chip">SEMES</span>
-        <span class="logo-chip">삼성전자</span>
-        <span class="logo-chip">AP시스템즈</span>
-        <span class="logo-chip">APS이노베이션</span>
-        <span class="logo-chip">롯데에너지머티리얼즈</span>
-        <span class="logo-chip">LG에너지솔루션</span>
-        <span class="logo-chip">제너셈</span>
-        <span class="logo-chip">삼성전기</span>
-        <span class="logo-chip">넥스틴</span>
-        <span class="logo-chip">코닉세미텍</span>
-        <span class="logo-chip">한국전자통신연구원</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── NEWS ──────────────────────────────────────── -->
-<section id="news">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">INFO</span>
-      <h2 class="section-title">뉴스 &amp; <span class="hl">IR</span></h2>
-    </div>
-    <div class="news-grid">
-      <a href="https://biz.heraldcorp.com/article/10627605" target="_blank" class="news-card">
-        <div class="news-source">헤럴드경제</div>
-        <div class="news-title">출연연 원천기술+기업 제품개발…글로벌 시장개척 본격화</div>
-        <p class="news-body">블루타일랩, ETRI와 국내 최초 920nm 펨토초 광섬유 레이저 개발. 미국 특허 2건 공동 출원 및 SCI 논문 발표.</p>
-        <div class="news-date">2025</div>
-      </a>
-      <a href="https://www.joongang.co.kr/article/25365396" target="_blank" class="news-card">
-        <div class="news-source">중앙일보 · 혁신창업대상</div>
-        <div class="news-title">모든 제품의 품질 완벽하게 검사 — 2025 대한민국 혁신창업대상</div>
-        <p class="news-body">국가과학기술연구회 이사장상 수상. AI 검사장비 매출 500억, 투자 300억 달성 목표 제시.</p>
-        <div class="news-date">2025.09</div>
-      </a>
-      <a href="https://www.hankookilbo.com/News/Read/A2024110615370000449" target="_blank" class="news-card">
-        <div class="news-source">한국일보 · 디지털이노베이션</div>
-        <div class="news-title">AI 기반 반도체·이차전지 제품 자동 불량검사</div>
-        <p class="news-body">2024 디지털이노베이션 대상 수상. 딥러닝 알고리즘 기반 비정형 결함 자동 감지 기술 인정.</p>
-        <div class="news-date">2024.11</div>
-      </a>
-      <a href="https://www.thebell.co.kr/free/content/ArticleView.asp?key=202408121452093360105554" target="_blank" class="news-card">
-        <div class="news-source">더벨</div>
-        <div class="news-title">수입 의존하는 레이저 소스 국산화에 도전</div>
-        <p class="news-body">김형우 블루타일랩 대표 인터뷰. 펨토초 레이저 국산화 전략과 글로벌 시장 진출 방향.</p>
-        <div class="news-date">2024.08</div>
-      </a>
-      <a href="https://www.thebell.co.kr/free/content/ArticleView.asp?key=202408191051078840106069" target="_blank" class="news-card">
-        <div class="news-source">더벨</div>
-        <div class="news-title">반도체 후공정 비전검사 블루타일랩, 기술특례상장 추진</div>
-        <p class="news-body">2026년 Pre-IPO 마무리, 2027년 코스닥 기술특례상장 추진 방침.</p>
-        <div class="news-date">2024.08</div>
-      </a>
-      <a href="https://www.etnews.com/20250626000467" target="_blank" class="news-card">
-        <div class="news-source">전자신문</div>
-        <div class="news-title">딥테크 선도 KST 출자기업 한 자리에…2025 KST 패밀리데이</div>
-        <p class="news-body">김형우 블루타일랩 대표, '올해의 기업가'상 수상. KST와 피앤피인베스트먼트 업무협약 체결.</p>
-        <div class="news-date">2025.06</div>
-      </a>
-    </div>
-    <div class="news-more">
-      <a href="https://bluetilelab.com/news/press-releases/" target="_blank" class="btn-outline">전체 뉴스 보기 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── IR ─────────────────────────────────────────── -->
-<section id="ir">
-  <div class="container">
-    <span class="section-label">IR 공시</span>
-    <h2 class="section-title" style="margin-bottom:40px;">투자자 <span class="hl">공시 자료</span></h2>
-    <div class="ir-grid">
-      <a href="https://bluetilelab.com/wp-content/uploads/2026/05/★주블루타일랩-기업신용평가등급-확인서BB_26.05.20-27.05.19.pdf" target="_blank" class="ir-row">
-        <span class="ir-date">2026.05.26</span>
-        <span class="badge badge-blue">신용평가</span>
-        <span class="ir-title">기업신용평가등급 확인서 (BB+, NICE D&amp;B, 유효기간 26.05~27.05)</span>
-        <span class="ir-arrow">↗</span>
-      </a>
-      <a href="https://bluetilelab.com/wp-content/uploads/2026/03/제10기-재무상태표2025.12.31-현재.pdf" target="_blank" class="ir-row">
-        <span class="ir-date">2026.03.30</span>
-        <span class="badge badge-navy">재무공시</span>
-        <span class="ir-title">[공고] 제10기 재무상태표 (2025.12.31 현재)</span>
-        <span class="ir-arrow">↗</span>
-      </a>
-      <a href="https://bluetilelab.com/wp-content/uploads/2025/12/미디어-scaled.jpg" target="_blank" class="ir-row">
-        <span class="ir-date">2025.12.09</span>
-        <span class="badge badge-green">수상</span>
-        <span class="ir-title">과학기술정보통신부 장관표창 수상 (정보통신 중소벤처기업 발전 유공)</span>
-        <span class="ir-arrow">↗</span>
-      </a>
-      <div class="ir-row">
-        <span class="ir-date">2026.01</span>
-        <span class="badge badge-blue">기술평가</span>
-        <span class="ir-title">[코스닥 상장심사] 예비기술평가 A등급 획득 (이크레더블)</span>
-        <span class="ir-arrow" style="color:var(--gray-400);">—</span>
-      </div>
-      <a href="https://bluetilelab.com/wp-content/uploads/2025/09/주블루타일랩-ISO90011400145001-인증서-250919-280918.pdf" target="_blank" class="ir-row">
-        <span class="ir-date">2025.09.19</span>
-        <span class="badge badge-green">인증</span>
-        <span class="ir-title">ISO 9001 · 14001 · 45001 국제인증 취득 (유효기간 25.09~28.09)</span>
-        <span class="ir-arrow">↗</span>
-      </a>
-    </div>
-    <div class="ir-cta-box">
-      <div class="ir-cta-text">
-        <strong>💡 투자자 문의</strong>
-        Pre-IPO 관련 상세 자료 및 IR 자료집은 아래 문의 폼을 통해 요청하시기 바랍니다. 기밀 유지 서약 후 제공합니다.
-      </div>
-      <a href="#contact" class="btn-primary" style="white-space:nowrap;">IR 자료 요청하기 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ────────────────────────────────────── -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <span class="section-label">Contact</span>
-        <h2>함께 만들어갈<br><span>파트너를 찾습니다</span></h2>
-        <p>사업 협력, 투자 문의, 기술 검토 등 어떤 주제든 편하게 연락 주세요. 블루타일랩 팀이 빠르게 응답합니다.</p>
-        <div class="contact-addr-list">
-          <div class="contact-addr">
-            <div class="contact-addr-label">본사 (대전)</div>
-            <div class="contact-addr-text">대전광역시 유성구 가정로 218, 402호<br>(ETRI 융합기술연구생산센터)</div>
-          </div>
-          <div class="contact-addr">
-            <div class="contact-addr-label">R&amp;D 센터 (인천)</div>
-            <div class="contact-addr-text">인천광역시 연수구 인천타워대로 99, 1303호<br>(송도동, 애니오션빌딩)</div>
-          </div>
-          <div class="contact-addr">
-            <div class="contact-addr-label">연락처</div>
-            <div class="contact-addr-text">
-              <strong>TEL</strong> 032-859-1303 &nbsp;|&nbsp; <strong>FAX</strong> 032-859-1304<br>
-              <strong>E-mail</strong> contact@bluetilelab.com
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form">
-        <div class="form-title">문의하기</div>
-        <div class="form-sub">일반문의 · 기술문의 · 투자문의</div>
-        <div class="form-type-btns">
-          <button class="form-type-btn active" onclick="selectType(this)">일반 문의</button>
-          <button class="form-type-btn" onclick="selectType(this)">기술 문의</button>
-          <button class="form-type-btn" onclick="selectType(this)">투자 문의 (IR)</button>
-          <button class="form-type-btn" onclick="selectType(this)">사업 협력</button>
-        </div>
-        <form id="contact-form" onsubmit="submitForm(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>이름</label>
-              <input type="text" placeholder="홍길동" required>
-            </div>
-            <div class="form-group">
-              <label>소속 / 회사명</label>
-              <input type="text" placeholder="(주)OO기업">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>이메일</label>
-            <input type="email" placeholder="contact@example.com" required>
-          </div>
-          <div class="form-group">
-            <label>문의 내용</label>
-            <textarea placeholder="문의 내용을 입력해 주세요." required></textarea>
-          </div>
-          <button type="submit" class="form-submit">문의 보내기 →</button>
-          <p class="form-notice">입력하신 정보는 문의 답변 목적으로만 활용됩니다.</p>
-        </form>
-        <div id="form-success">✓ 문의가 접수되었습니다. 빠른 시일 내 답변 드리겠습니다.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─────────────────────────────────────── -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Blue<span>Tile</span>Lab</div>
-        <p class="footer-desc">AI 비전검사 시스템과 극초단파 레이저 기술로 제조 산업의 새로운 기준을 만듭니다.<br><br>Seeing the Invisible. Processing the Impossible.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">회사소개</div>
-        <div class="footer-links">
-          <a href="#about">미션 &amp; 비전</a>
-          <a href="#history">연혁 &amp; 마일스톤</a>
-          <a href="#about">인증서</a>
-          <a href="#contact">오시는 길</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">사업 &amp; 기술</div>
-        <div class="footer-links">
-          <a href="#business">머신비전 AI</a>
-          <a href="#business">극초단파 레이저</a>
-          <a href="#technology">기술소개</a>
-          <a href="#solution">솔루션</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">INFO</div>
-        <div class="footer-links">
-          <a href="#news">뉴스</a>
-          <a href="#ir">IR 공시</a>
-          <a href="#contact">문의하기</a>
-          <a href="https://bluetilelab.com/careers/" target="_blank">인재채용</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Blue Tile Lab, Inc. All Rights Reserved. | 사업자번호 464-87-00302</div>
-      <div class="footer-legal">
-        <a href="#">개인정보처리방침</a>
-        <a href="#">이메일무단수집거부</a>
-      </div>
-    </div>
-  </div>
+</main>
+<footer>
+  BlueTileLab 전략기획실 Daily Intelligence Brief · 모든 기사는 원문 링크로 연결됩니다.
 </footer>
-
-<!-- ─── FLOATING CTA ───────────────────────────────── -->
-<button class="float-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-  <div class="float-dot"></div>
-  2026 Pre-IPO · 투자 문의
-</button>
-
-<script>
-  function switchTab(name, btn) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  function selectType(btn) {
-    document.querySelectorAll('.form-type-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
-
-  // Counter animation on scroll
-  const statsSection = document.getElementById('stats');
-  let animated = false;
-  const observer = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !animated) {
-      animated = true;
-      animateNum('cnt1', 56, '억');
-      animateNum('cnt2', 97, '억');
-      animateNum('cnt3', 43, '명');
-    }
-  }, { threshold: 0.5 });
-  observer.observe(statsSection);
-
-  function animateNum(id, end, suffix) {
-    const el = document.getElementById(id);
-    let n = 0;
-    const step = Math.ceil(end / 40);
-    const timer = setInterval(() => {
-      n = Math.min(n + step, end);
-      el.innerHTML = n + '<span class="unit">' + suffix + '</span>';
-      if (n >= end) clearInterval(timer);
-    }, 30);
-  }
-
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').style.background =
-      window.scrollY > 60 ? 'rgba(8,14,30,0.98)' : 'rgba(8,14,30,0.92)';
-  });
-</script>
+</div>
 </body>
 </html>
